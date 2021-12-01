@@ -1,7 +1,7 @@
 ThisBuild / version       := "$version$"
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / organization  := "io.github.scottweaver"
-ThisBuild / description   := "$description$"
+ThisBuild / description   := "$project_description$"
 ThisBuild / homepage      := Some(url("$homepage$"))
 ThisBuild / licenses      := List("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 ThisBuild / scmInfo       := Some(
@@ -60,10 +60,10 @@ lazy val commonSettings = Seq[Setting[_]](
   scalaVersion := scala213Version
 )
 
-lazy val `$core-module-name$` =
+lazy val `core-module-name` =
   project
-    .in(file("modules/$core-module-name$"))
+    .in(file("modules/core-module-name"))
     .settings(
-      name := "$core-module-name$"
+      name := "core-module-name"
     )
     .settings(commonSettings)
