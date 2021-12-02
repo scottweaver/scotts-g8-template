@@ -23,6 +23,7 @@ ThisBuild / developers    := List(
 val scala213Version            = "2.13.7"
 val scala212Version            = "2.12.15"
 val supportedScalaVersions     = List(scala213Version, scala212Version)
+val scalatestVersion = "3.2.10"
 
 lazy val stdScalacOptions = Seq(
   "-encoding",
@@ -57,13 +58,14 @@ lazy val scala213Options  = Seq(
 ThisBuild / scalacOptions := stdScalacOptions ++ scala213Options
 
 lazy val commonSettings = Seq[Setting[_]](
-  scalaVersion := scala213Version
+  scalaVersion := scala213Version,
+    libraryDependencies += "org.scalatest" %% "scalatest" % scalatestVersion % Test
 )
 
-lazy val `core-module-name` =
+lazy val `$core-module-name;format="lower,hyphen"$` =
   project
-    .in(file("modules/core-module-name"))
+    .in(file("modules/$core-module-name;format="lower,hyphen"$"))
     .settings(
-      name := "core-module-name"
+      name := "$core-module-name;format="lower,hyphen"$"
     )
     .settings(commonSettings)
