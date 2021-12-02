@@ -48,11 +48,12 @@ lazy val scala213Options  = Seq(
   "-Xsource:2.13",
   "-Ywarn-numeric-widen",
   "-Ywarn-value-discard",
-  // "-Wunused:imports", <-- Generally more irritating than useful during the development cycle.  Best enforced during CI or as a commit hook.
+  // Unused imports is generally more irritating than useful during the development cycle.  Best enforced during CI or as a commit hook.
+  "-Wconf:cat=unused-imports:i",
   "-Wvalue-discard",
-  "-Wunused:patvars",
-  "-Wunused:privates",
-  "-Wunused:params"
+  "-Wunused:patvars,privates,params"
+  // "-Wunused:privates",
+  // "-Wunused:params"
 )
 
 ThisBuild / scalacOptions := stdScalacOptions ++ scala213Options
